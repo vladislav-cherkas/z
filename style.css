@@ -1,0 +1,47 @@
+.row {
+    display: flex;
+}
+.title-cell {
+    font: bold 16px sans-serif;
+    line-height: 68px;
+    color: #c1a7e2;
+    text-align: center;
+    background-color: #121212;
+}
+.line-cell {
+    height: 20px;
+    background-color: #292929;
+}
+.job-cell {
+    font: bold 10px sans-serif;
+    font-style: italic;
+    line-height: 20px;
+    color: #c1a7e2;
+    text-align: center;
+    background-color: #121212;
+}
+.day-cell {
+    flex-grow: 1;
+    display: flex;
+    background-color: black;
+}
+.day-cell>input {
+    flex-grow: 1;
+    font: bold 10px sans-serif;
+    line-height: 20px;
+    color: white;
+    text-align: center;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+}
+.day-cell>input:focus {
+    outline: none;
+}
+.subtitle-cell {
+    font: bold 10px sans-serif;
+    line-height: 20px;
+    color: #b7b7b7;
+    text-align: center;
+    background-color: black;
+}
