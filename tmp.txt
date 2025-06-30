@@ -1,25 +1,71 @@
-
-    <div class="executor-cell">
-        <select>
-            <option style="background-color: red"></option>
-            <option>Мокиенко А</option>
-            <option>Алексеенко А</option>
-            <option>Сальков Д</option>
-            <option>Глушко А</option>
-            <option>Ващенко А</option>
-            <option>Карпенко А</option>
-            <option>Аллавердян С</option>
-            <option>Денисенко А</option>
-            <option>Шелест П</option>
-            <option>Булавин А</option>
-            <option>Черкас Вит</option>
-            <option>Черкас Вл</option>
-        </select>
+<div class="row">
+        <div class="job-cell">Распорядитель</div>
+        <div class="executor-cell">
+            <select>
+                <option></option>
+                <option>Шелест П</option>
+                <option>Булавин А</option>
+                <option>Черкас Вит</option>
+                <option>Мокиенко А</option>
+                <option>Алексеенко А</option>
+                <option>Карпенко А</option>
+                <option>Глушко А</option>
+                <option>Ващенко А</option>
+                <option>Аллавердян С</option>
+                <option>Сальков Д</option>
+                <option>Денисенко А</option>
+                <option>Черкас Вл</option>
+            </select>
+        </div>
+        <div class="executor-cell">
+            <select>
+                <option></option>
+                <option>Шелест П</option>
+                <option>Булавин А</option>
+                <option>Черкас Вит</option>
+                <option>Мокиенко А</option>
+                <option>Алексеенко А</option>
+                <option>Карпенко А</option>
+                <option>Глушко А</option>
+                <option>Ващенко А</option>
+                <option>Аллавердян С</option>
+                <option>Сальков Д</option>
+                <option>Денисенко А</option>
+                <option>Черкас Вл</option>
+            </select>
+        </div>
+        <div class="executor-cell">
+            <select>
+                <option></option>
+                <option>Шелест П</option>
+                <option>Булавин А</option>
+                <option>Черкас Вит</option>
+                <option>Мокиенко А</option>
+                <option>Алексеенко А</option>
+                <option>Карпенко А</option>
+                <option>Глушко А</option>
+                <option>Ващенко А</option>
+                <option>Аллавердян С</option>
+                <option>Сальков Д</option>
+                <option>Денисенко А</option>
+                <option>Черкас Вл</option>
+            </select>
+        </div>
+        <div class="executor-cell">
+            <select>
+                <option></option>
+                <option>Шелест П</option>
+                <option>Булавин А</option>
+                <option>Черкас Вит</option>
+                <option>Мокиенко А</option>
+                <option>Алексеенко А</option>
+                <option>Карпенко А</option>
+                <option>Глушко А</option>
+                <option>Ващенко А</option>
+                <option>Аллавердян С</option>
+                <option>Сальков Д</option>
+                <option>Денисенко А</option>
+                <option>Черкас Вл</option>
+            </select>
+        </div>
     </div>
-    
-    .executor-cell {
-
-    }
-    .executor-cell>select:focus {
-        outline: none;
-    }

@@ -1,3 +1,6 @@
+.restricter {
+    width: 960px;
+}
 .row {
     display: flex;
 }
@@ -13,12 +16,29 @@
     background-color: #292929;
 }
 .job-cell {
+    flex: 1 1 0;
     font: bold 10px sans-serif;
     font-style: italic;
     line-height: 20px;
     color: #c1a7e2;
     text-align: center;
     background-color: #121212;
+}
+.executor-cell {
+    flex: 1 1 0;
+    display: flex;
+    height: 20px;
+}
+.executor-cell>select {
+    flex-grow: 1;
+    border: none;
+    text-align: center;
+    color: #c1a7e2;
+    background-color: black;
+    font-size: 10px;
+}
+.executor-cell>select:focus {
+    outline: none;
 }
 .day-cell {
     flex-grow: 1;
