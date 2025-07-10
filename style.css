@@ -1,5 +1,29 @@
+body {
+    margin: 0;
+}
+.panel {
+    background-color: #e0e0e0;
+    padding: 16px 0;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+.panel-btn {
+    background-color: #1976d2;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 10px 24px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.panel-btn:hover {
+    background-color: #115293;
+}
 .restricter {
     width: 840px;
+    margin: 0 auto;
 }
 .row {
     display: flex;

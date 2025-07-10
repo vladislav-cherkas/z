@@ -1,0 +1,1960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>График</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        body {
+            margin: 0;
+        }
+        .panel {
+            background-color: #e0e0e0;
+            padding: 16px 0;
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+        .panel-btn {
+            background-color: #1976d2;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            padding: 10px 24px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .panel-btn:hover {
+            background-color: #115293;
+        }
+        .restricter {
+            width: 840px;
+            margin: 0 auto;
+        }
+        .row {
+            display: flex;
+        }
+        .title-cell {
+            font: bold 16px sans-serif;
+            line-height: 68px;
+            color: #c1a7e2;
+            text-align: center;
+            background-color: #121212;
+        }
+        .line-cell {
+            height: 20px;
+            background-color: #292929;
+        }
+        .job-cell {
+            flex: 1 1 0;
+            font: bold 10px sans-serif;
+            font-style: italic;
+            line-height: 20px;
+            color: #c1a7e2;
+            text-align: center;
+            background-color: #121212;
+        }
+        .executor-cell {
+            flex: 1 1 0;
+            display: flex;
+            height: 20px;
+        }
+        .executor-cell>select {
+            flex-grow: 1;
+            border: none;
+            text-align: center;
+            color: #c1a7e2;
+            background-color: black;
+            font-size: 10px;
+        }
+        .executor-cell>select:focus {
+            outline: none;
+        }
+        .day-cell {
+            flex-grow: 1;
+            display: flex;
+            background-color: black;
+        }
+        .day-cell>input {
+            flex-grow: 1;
+            font: bold 10px sans-serif;
+            line-height: 20px;
+            color: white;
+            text-align: center;
+            border: none;
+            padding: 0;
+            background-color: transparent;
+        }
+        .day-cell>input:focus {
+            outline: none;
+        }
+        .subtitle-cell {
+            font: bold 10px sans-serif;
+            line-height: 20px;
+            color: #b7b7b7;
+            text-align: center;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel">
+        <button class="panel-btn" onclick="pickRandomOptionAll()">Распределить</button>
+        <button class="panel-btn" onclick="clearOptionAll()">Очистить</button>
+        <button class="panel-btn" onclick="toNarrowVariant()">Режим 1</button>
+        <button class="panel-btn" onclick="toWideVariant()">Режим 2</button>
+    </div>
+    <div class="restricter">
+        <div class="title-cell">Аудио/Видео</div>
+        <div class="row">
+            <div class="day-cell">
+                <input type="text" size="1" value="">
+            </div>
+            <div class="day-cell">
+                <input type="text" size="1" value="">
+            </div>
+            <div class="day-cell">
+                <input type="text" size="1" value="">
+            </div>
+            <div class="day-cell">
+                <input type="text" size="1" value="">
+            </div>
+            <div class="day-cell">
+                <input type="text" size="1" value="">
+            </div>
+            <div class="day-cell">
+                <input type="text" size="1" value="">
+            </div>
+        </div>
+        <div class="subtitle-cell">ВСТРЕЧИ ПО ZOOM</div>
+        <div class="row">
+            <div class="job-cell">Звук 1</div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="job-cell">Звук 2</div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="job-cell">Видео 1</div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="job-cell">Видео 2</div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="job-cell">Распорядитель</div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+        </div>
+        <div class="subtitle-cell">ГИБРИДНЫЕ ВСТРЕЧИ</div>
+        <div class="row">
+            <div class="job-cell">Аппаратура 1</div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="job-cell">Аппаратура 2</div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="job-cell">Сцена</div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="job-cell">Zoom Распорядитель</div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+        </div>
+        <div class="subtitle-cell">ВПС В ЧЕТВЕРГ</div>
+        <div class="row">
+            <div class="job-cell">Распорядитель 1</div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="job-cell">Распорядитель 2</div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+        </div>
+        <div class="line-cell"></div>
+        <div class="row">
+            <div class="day-cell">
+                <input type="text" size="1" value="">
+            </div>
+            <div class="day-cell">
+                <input type="text" size="1" value="">
+            </div>
+            <div class="day-cell">
+                <input type="text" size="1" value="">
+            </div>
+            <div class="day-cell">
+                <input type="text" size="1" value="">
+            </div>
+            <div class="day-cell">
+                <input type="text" size="1" value="">
+            </div>
+            <div class="day-cell">
+                <input type="text" size="1" value="">
+            </div>
+        </div>
+        <div class="subtitle-cell">ВСТРЕЧИ ПО ZOOM</div>
+        <div class="row">
+            <div class="job-cell">Звук 1</div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="job-cell">Звук 2</div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="job-cell">Видео 1</div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="job-cell">Видео 2</div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="job-cell">Распорядитель</div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+        </div>
+        <div class="subtitle-cell">ГИБРИДНЫЕ ВСТРЕЧИ</div>
+        <div class="row">
+            <div class="job-cell">Аппаратура 1</div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="job-cell">Аппаратура 2</div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="job-cell">Сцена</div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="job-cell">Zoom Распорядитель</div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+            <div class="executor-cell">
+                <select>
+                    <option></option>
+                    <option>Шелест П</option>
+                    <option>Булавин А</option>
+                    <option>Черкас Вит</option>
+                    <option>Мокиенко А</option>
+                    <option>Алексеенко А</option>
+                    <option>Карпенко А</option>
+                    <option>Глушко А</option>
+                    <option>Ващенко А</option>
+                    <option>Аллавердян С</option>
+                    <option>Сальков Д</option>
+                    <option>Денисенко А</option>
+                    <option>Черкас Вл</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toNarrowVariant() {
+            document.querySelector('.restricter').style.width = '700px';
+            for (let element of document.querySelectorAll('.row>.executor-cell:last-child')) {
+                element.style.flex = '0 1 0';
+                element.style.overflow = 'hidden';
+                element.style.width = '0';
+            }
+            for (let element of document.querySelectorAll('.row>.day-cell:last-child')) {
+                element.style.flexGrow = '0';
+                element.style.overflow = 'hidden';
+                element.style.width = '0';
+            }
+        }
+        function toWideVariant() {
+            document.querySelector('.restricter').style.width = '840px';
+            for (let element of document.querySelectorAll('.row>.executor-cell:last-child')) {
+                element.style.flex = '1 1 0';
+            }
+            for (let element of document.querySelectorAll('.row>.day-cell:last-child')) {
+                element.style.flexGrow = '1';
+                element.style.width = 'auto';
+            }
+        }
+        function pickRandomOption(element) {
+            const options = element.options;
+            if (options.length > 0) {
+                const randomIndex = Math.floor(Math.random() * options.length);
+                element.selectedIndex = randomIndex;
+            }
+        }
+        function pickRandomOptionAll() {
+            for (let element of document.querySelectorAll('.executor-cell>select')) {
+                pickRandomOption(element);
+            }
+        }
+        function clearOptionAll() {
+            for (let element of document.querySelectorAll('.executor-cell>select')) {
+                element.selectedIndex = 0;
+            }
+        }
+    </script>
+</body>
+</html>

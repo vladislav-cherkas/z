@@ -6,9 +6,18 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <div class="panel">
+        <button class="panel-btn" onclick="pickRandomOptionAll()">Распределить</button>
+        <button class="panel-btn" onclick="clearOptionAll()">Очистить</button>
+        <button class="panel-btn" onclick="toNarrowVariant()">Режим 1</button>
+        <button class="panel-btn" onclick="toWideVariant()">Режим 2</button>
+    </div>
     <div class="restricter">
         <div class="title-cell">Аудио/Видео</div>
         <div class="row">
+            <div class="day-cell">
+                <input type="text" size="1" value="">
+            </div>
             <div class="day-cell">
                 <input type="text" size="1" value="">
             </div>
@@ -998,6 +1007,9 @@
         </div>
         <div class="line-cell"></div>
         <div class="row">
+            <div class="day-cell">
+                <input type="text" size="1" value="">
+            </div>
             <div class="day-cell">
                 <input type="text" size="1" value="">
             </div>
